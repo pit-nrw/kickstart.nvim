@@ -97,20 +97,19 @@ do
   --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
   vim.g.mapleader = ' '
   vim.g.maplocalleader = ' '
-
-  -- Set to true if you have a Nerd Font installed and selected in the terminal
-  vim.g.have_nerd_font = false
+-- Set to true if you have a Nerd Font installed and selected in the terminal
+vim.g.have_nerd_font = true
 
   -- [[ Setting options ]]
   --  See `:help vim.o`
   -- NOTE: You can change these options as you wish!
   --  For more options, you can see `:help option-list`
+-- Make line numbers default
+vim.o.number = true
+-- You can also add relative line numbers, to help with jumping.
+--  Experiment for yourself to see if you like it!
+vim.o.relativenumber = true
 
-  -- Make line numbers default
-  vim.o.number = true
-  -- You can also add relative line numbers, to help with jumping.
-  --  Experiment for yourself to see if you like it!
-  -- vim.o.relativenumber = true
 
   -- Enable mouse mode, can be useful for resizing splits for example!
   vim.o.mouse = 'a'
@@ -196,6 +195,11 @@ do
     -- Can switch between these as you prefer
     virtual_text = true, -- Text shows up at the end of the line
     virtual_lines = false, -- Text shows up underneath the line, with virtual lines
+-- TIP: Disable arrow keys in normal mode
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
     -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
     jump = {
